@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace XamarinAzure.Droids.Droid
 {
@@ -14,7 +17,10 @@ namespace XamarinAzure.Droids.Droid
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
-			TabLayoutResource = Resource.Layout.Tabbar;
+            MobileCenter.Start("e0211401-c146-4936-8c2a-4144e02df65e",
+                   typeof(Analytics), typeof(Crashes));
+
+            TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar; 
 
 			base.OnCreate (bundle);
